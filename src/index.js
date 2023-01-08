@@ -116,6 +116,11 @@ const inputs = (() => {
         const storeButton = document.getElementById('storeButton')
         storeButton.addEventListener('click', ()=>storeInput(createTodo()))
     }
+
+    const hide =() => {
+        const mainContainer = document.getElementById('mainContainer')
+        mainContainer.classList.add('hidden')
+    }
     
 
     return {
@@ -123,6 +128,7 @@ const inputs = (() => {
         createTodo,
         storeInput,
         storeBtnLogic,
+        hide
     }
 })();
 
@@ -132,10 +138,6 @@ inputs.storeBtnLogic()
 
 const hide = document.createElement('button')
 hide.textContent = 'hide'
+hide.addEventListener('click', () => inputs.hide())
 const mainContainer = document.getElementById('mainContainer')
 mainContainer.appendChild(hide)
-const inputContainer = document.getElementById('inputContainer')
-inputContainer.classList.add('hello')
-// function hideElement(){
-//     inputContainer.classList.add('hidden')
-// }
