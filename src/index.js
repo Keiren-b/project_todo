@@ -114,21 +114,27 @@ const inputs = (() => {
 
     const storeBtnLogic = () => {
         const storeButton = document.getElementById('storeButton')
-        storeButton.addEventListener('click', ()=>storeInput(createTodo()))
-    }
+        storeButton.addEventListener('click', function(){
+            storeInput(createTodo())
+            clearInput()
+    })}
 
     const hide =() => {
         const mainContainer = document.getElementById('mainContainer')
         mainContainer.classList.add('hidden')
     }
     
+    const clearInput = ()=> {
+        for(let i=0;i<test.childElementCount; i++){
+        test.children[i].value=''}}
 
     return {
         createInput,
         createTodo,
         storeInput,
         storeBtnLogic,
-        hide
+        hide,
+        clearInput,
     }
 })();
 
